@@ -1,0 +1,53 @@
+.NewGroup {
+  width: 100%;
+  padding: 40px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.NewGroupInputContainer {
+  width: 80%;
+  position: relative;
+  margin: auto;
+}
+
+.NewGroup input {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background: #ede9fe;
+  color: #8b5cf6;
+  padding: 15px 20px;
+  outline: none;
+}
+
+.NewGroup input:focus ~ label {
+  transform: translateY(-40px);
+  background: none;
+}
+
+.NewGroupInputContainer label {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  color: #8b5cf6;
+  transition: transform 0.3s ease-in-out;
+  background: #ede9fe;
+}
+
+.NewGroup button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  background: #ede9fe;
+  color: #8b5cf6;
+}
+
+.NewGroup button:hover {
+  background: #d9d0ff;
+}

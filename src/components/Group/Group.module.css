@@ -1,0 +1,54 @@
+.GroupContainer {
+  width: 100%;
+}
+
+.GroupContainer ul {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+}
+
+.Group {
+    width: 80%;
+    border-radius: 5px;
+    background: #ede9fe;
+    color: #8b5cf6;
+    padding: 20px 0;
+    margin: 10px;
+    text-align: center;
+}
+
+.Group button.animate {
+    color: #8b5cf6;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 23px;
+    animation: vibrate 1s infinite;
+    transition: all;
+    width: 60%;
+    cursor: pointer;
+}
+
+.ProductsContainer {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes vibrate {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(3px);
+    }
+}

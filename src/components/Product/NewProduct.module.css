@@ -1,0 +1,97 @@
+.NewProduct {
+  width: 70%;
+  padding: 30px 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  background: #f5f3ff;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
+.EditGroupName,
+.AddProduct {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.EditGroupName input,
+.AddProduct input {
+  border: 1px solid #8b5cf6;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  width: 100%;
+  margin: 20px 0;
+  background: none;
+}
+
+.EditProduct_InputContainer,
+.AddProduct_InputContainer {
+  width: 100%;
+  position: relative;
+}
+
+.EditProduct_InputContainer label,
+.AddProduct_InputContainer label {
+  margin-left: 4px;
+  color: #6d28d9;
+}
+
+.ProductListConatainer,
+.ProductListConatainer ul {
+  width: 100%;
+}
+
+.ProductListConatainer ul li {
+  width: 100%;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background: #a78bfa;
+  color: #f5f3ff;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.ProductListConatainerTitle {
+  margin: 10px 0;
+}
+
+.AddProduct_h2Title {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.AddBtnContainer {
+  width: 100%;
+  text-align: center;
+}
+
+.AddBtnContainer button {
+  width: 40px;
+  height: 40px;
+  color: #f5f3ff;
+  background: #a78bfa;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  font-size: 27px;
+}
+
+.EditProduct_InputContainer button {
+  margin: 0 auto;
+  color: #f5f3ff;
+  background: #a78bfa;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-size: 16px;
+  padding: 10px;
+}
