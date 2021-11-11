@@ -1,9 +1,8 @@
 import { createRef } from "react";
 import Styles from "./NewGroup.module.css";
 
-const NewGroup = ({addGroup}) => {
-
-    const NewGroupInput = createRef();
+const NewGroup = ({ addGroup }) => {
+  const NewGroupInput = createRef();
 
   return (
     <div className={Styles.NewGroup}>
@@ -11,7 +10,16 @@ const NewGroup = ({addGroup}) => {
         <input ref={NewGroupInput} id="NewGroupInput" type="text" />
         <label htmlFor="NewGroupInput">Enter the group name</label>
       </div>
-      <button onClick={() => addGroup(NewGroupInput.current.value)}>+</button>
+      <button
+        onClick={() => {
+          if (NewGroupInput.current.value === "") {
+            alert("please enter the group name");
+            return false;
+          } else return addGroup(NewGroupInput.current.value);
+        }}
+      >
+        +
+      </button>
     </div>
   );
 };
