@@ -6,11 +6,24 @@
 
 body {
   font-family: sans-serif;
+  background-color: var(--c2);
 }
 
-.container {
-  width: 80%;
+ul,
+li {
+  list-style: none;
+}
+
+:root {
+  --c1: #ffffff;
+  --c2: #f6f8fc;
+  --c3: #a2adc9;
+  --c4: #272f47;
+  --c5: #5f90ff;
+  --c6: #1d66ff;
+}
+
+.HTMLContainer {
+  width: 100%;
   height: 100vh;
-  margin:  0 auto;
 }
-
