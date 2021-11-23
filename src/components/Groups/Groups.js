@@ -13,7 +13,7 @@ import toast, { Toaster } from "react-hot-toast";
 const Groups = () => {
   const group = useContext(GroupProvider);
   const setGroup = useContext(GroupDispatcherProvider);
-  // const setProduct = useContext(ProductDispatcherProvider);
+  const setProduct = useContext(ProductDispatcherProvider);
   const product = useContext(ProductProvider);
   const [value, setValue] = useState("");
   const [searchValue, setSearchValue] = useState("");
@@ -88,6 +88,7 @@ const Groups = () => {
   const deletGroupHandler = (groupName) => {
     const groups = [...group];
     setGroup(groups.filter((group) => group !== groupName));
+    setProduct(product.filter((product) => product.group !== groupName));
     toast.error(groupName + " group whas deleted");
   };
   const serachOnGrouplistHandler = () => {
