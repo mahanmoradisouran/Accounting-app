@@ -16,6 +16,7 @@ const Groups = () => {
   // const setProduct = useContext(ProductDispatcherProvider);
   const product = useContext(ProductProvider);
   const [value, setValue] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const AddGroupHandler = (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ const Groups = () => {
       }
     }
   };
-  const showRecent = () => {
+  const showRecentHandler = () => {
     const showLowerThan4 = () => {
       return group.slice(group.length - 4).map((group) => {
         return (
@@ -82,11 +83,52 @@ const Groups = () => {
   const deletGroupHandler = (groupName) => {
     const groups = [...group];
     setGroup(groups.filter((group) => group !== groupName));
-    toast.error(groupName + " group whas deleted")
+    toast.error(groupName + " group whas deleted");
     // setGroup();
   };
   const editGroupHandler = () => {
     console.log("edited");
+  };
+  const serachOnGrouplistHandler = () => {
+    let groups;
+
+    if (searchValue.trim() === "") {
+      return group.map((group) => {
+        return (
+          <li key={group} className={styles.item}>
+            <div>{group}</div>
+            <div>
+              {product.filter((product) => product.group === group).length}
+            </div>
+            <div className={styles.buttonItem}>
+              <button onClick={editGroupHandler}>Edit</button>
+              <button onClick={() => deletGroupHandler(group)}>Delete</button>
+            </div>
+          </li>
+        );
+      });
+    } else {
+      const filteredItems = group.filter((group) =>
+        group.trim().toLowerCase().includes(searchValue.trim().toLowerCase())
+      );
+      groups = filteredItems;
+      console.log(filteredItems, groups);
+
+      return groups.map((group) => {
+        return (
+          <li key={group} className={styles.item}>
+            <div>{group}</div>
+            <div>
+              {product.filter((product) => product.group === group).length}
+            </div>
+            <div className={styles.buttonItem}>
+              <button onClick={editGroupHandler}>Edit</button>
+              <button onClick={() => deletGroupHandler(group)}>Delete</button>
+            </div>
+          </li>
+        );
+      });
+    }
   };
 
   return (
@@ -94,7 +136,7 @@ const Groups = () => {
       <Toaster />
       <h2>Recently added</h2>
       <div className={styles.GroupsListContainer}>
-        <ul>{showRecent()}</ul>
+        <ul>{showRecentHandler()}</ul>
       </div>
       <h2>Add new group</h2>
       <div className={styles.FormContainer}>
@@ -117,7 +159,12 @@ const Groups = () => {
         <ul className={styles.DeletForm}>
           <div className={styles.searchForm}>
             <label htmlFor="delet_input">Search in groups</label>
-            <input type="text" id="delet_input" />
+            <input
+              type="text"
+              id="delet_input"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
           </div>
           <ul className={styles.groupList}>
             <li className={styles.groupListTitle}>
@@ -125,25 +172,7 @@ const Groups = () => {
               <div>Length</div>
               <div>Edit groups and Delete </div>
             </li>
-            {group.map((group) => {
-              return (
-                <li key={group} className={styles.item}>
-                  <div>{group}</div>
-                  <div>
-                    {
-                      product.filter((product) => product.group === group)
-                        .length
-                    }
-                  </div>
-                  <div className={styles.buttonItem}>
-                    <button onClick={editGroupHandler}>Edit</button>
-                    <button onClick={() => deletGroupHandler(group)}>
-                      Delete
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
+            {serachOnGrouplistHandler()}
           </ul>
         </ul>
       </div>
