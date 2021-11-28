@@ -87,10 +87,17 @@ export const showRecentHandler = (group, functions, product, type) => {
 const ContentProvider = ({ children }) => {
   const [content, setContent] = useState("Dashboard");
   const [group, setGroup] = useState([
-   
+    "cars",
+    "books",
+    "flowers",
+    "truck",
+    "electronic",
   ]);
   const [products, setProducts] = useState([
-   
+    { name: "Bmw", price: 34, quantity: 32, group: "cars" },
+    { name: "Mercedec", price: 34, quantity: 32, group: "cars" },
+    { name: "Shahname", price: 34, quantity: 32, group: "books" },
+    { name: "Divanhafez", price: 34, quantity: 32, group: "books" },
   ]);
 
   // useEffect(() => {

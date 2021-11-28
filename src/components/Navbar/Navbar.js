@@ -1,16 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import {
   ContextDispatcherProvider,
   ContextProvider,
 } from "../context/ContentProvider";
 import styles from "./Navbar.module.css";
 
-
 const Navbar = () => {
   const setContent = useContext(ContextDispatcherProvider);
   const Content = useContext(ContextProvider);
-
- 
 
   return (
     <header>

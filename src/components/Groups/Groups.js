@@ -255,7 +255,7 @@ const Groups = () => {
               <li className={styles.groupListTitle}>
                 <div>Group name</div>
                 <div>Length</div>
-                <div>Edit groups and Delete </div>
+                <div>Edit </div>
               </li>
               {serachOnGrouplistHandler()}
             </ul>

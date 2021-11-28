@@ -9,6 +9,7 @@ header {
   z-index: 999;
 }
 
+
 .headerContainer {
   position: absolute;
   width: 100%;
@@ -19,10 +20,14 @@ header {
   padding: 25px 0;
 }
 
+.headerContainer h2 {
+  width: 64%;
+}
+
+
 .headerTitle {
   display: flex;
   justify-content: center;
-  padding-right: 43px;
   width: 100%;
 }
 

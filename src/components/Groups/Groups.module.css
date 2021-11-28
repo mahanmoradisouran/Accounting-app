@@ -27,6 +27,7 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
 }
@@ -44,6 +45,7 @@
   overflow-x: ellipsis;
   overflow-y: hidden;
   width: 200px;
+  margin: 5px;
 }
 
 .GroupsListContainer ul li:nth-child(1) {
@@ -338,4 +340,20 @@
 .popup .changeButton {
   margin-top: 10px;
   padding: 10px 15px;
+}
+@media screen and (max-width: 1210px) {
+  .DeletBtn {
+    display: none;
+  }
+  .DeletBtn svg {
+    display: none;
+  }
+
+  .GroupsListContainer ul li {
+    overflow-x: none;
+    overflow-y: none;
+  }
+  .Form {
+    width: 100%;
+  }
 }

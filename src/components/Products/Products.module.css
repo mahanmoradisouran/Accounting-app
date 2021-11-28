@@ -115,7 +115,8 @@
   border-radius: 20px;
   display: flex;
 }
-
+.ProductsListContainer ul li:hover .DeletBtn,
+.GroupsListContainer ul li:hover .DeletBtn,
 .ProductsListContainer ul li:hover .DeletBtn {
   opacity: 1;
   transform: translateY(-20px);
@@ -319,7 +320,6 @@
 .buttonItem button:last-child:hover {
   background: rgba(255, 0, 0, 0.05);
 }
-
 
 .popup {
   width: 100%;
