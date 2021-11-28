@@ -20,8 +20,6 @@
   background-color: var(--c1);
   box-shadow: 0 0 15px 1px #eee;
   border-radius: 20px;
-  display: block;
-  flex-direction: column;
 }
 
 .GroupsListContainer ul {
@@ -147,7 +145,7 @@
 }
 
 .Form div button:hover {
-  background: #0171da;
+  background: #304ffe;
 }
 
 .Form div input,
@@ -337,15 +335,7 @@
   background: #00000003;
 }
 
-.changeButton {
-  color: var(--c1);
-  font-size: 20px;
-  background: #0084ff;
-  padding: 15px 20px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  box-shadow: 0 0 20px 1px #0000001f;
+.popup .changeButton {
   margin-top: 10px;
-  z-index: 1110;
+  padding: 10px 15px;
 }

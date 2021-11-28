@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { ContextProvider } from "../context/ContentProvider";
 import Groups from "../Groups/Groups";
+import Product from "../Products/Products";
+import Dashboard from "../Dashboard/Dashboard";
 import styles from "./Main.module.css";
-// import { ContextDispatcherProvider } from "../context/ContentProvider";
 
 const Main = () => {
   // const setContent = useContext(ContextDispatcherProvider);
@@ -10,14 +11,11 @@ const Main = () => {
 
   const renderContent = () => {
     if (content === "Dashboard") {
-      // console.log(content);
-      return <></>;
+      return <Dashboard />;
     } else if (content === "Groups") {
-      // console.log(content);
       return <Groups />;
     } else {
-      // console.log(content);
-      return <></>;
+      return <Product />;
     }
   };
 

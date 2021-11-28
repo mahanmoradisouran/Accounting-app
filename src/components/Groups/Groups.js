@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import styles from "./Groups.module.css";
-import "../../App.css";
+// import style2 from "../Products/Products.module.css";
+import { blue, indigo } from "@mui/material/colors";
+import { styled } from "@mui/material/styles";
 import {
   GroupDispatcherProvider,
   GroupProvider,
@@ -9,6 +11,8 @@ import {
 } from "../context/ContentProvider";
 import { AiFillDelete, AiFillFolderAdd } from "react-icons/ai";
 import toast, { Toaster } from "react-hot-toast";
+import Button from "@mui/material/Button";
+import { showRecentHandler } from "../context/ContentProvider";
 
 const Groups = () => {
   const group = useContext(GroupProvider);
@@ -48,48 +52,18 @@ const Groups = () => {
       }
     }
   };
-  const showRecentHandler = () => {
-    const showLowerThan4 = () => {
-      return group.slice(group.length - 4).map((group) => {
-        return (
-          <li key={group}>
-            {group}
-            <span>
-              {product.filter((product) => product.group === group).length}
-            </span>
-            <div className={styles.DeletBtn}>
-              <AiFillDelete onClick={() => deletGroupHandler(group)} />
-            </div>
-          </li>
-        );
-      });
-    };
-    const showAll = (groupLength) => {
-      if (groupLength > 0) {
-        return group.map((group) => {
-          return (
-            <li key={group}>
-              {group}
-              <span>
-                {product.filter((product) => product.group === group).length}
-              </span>
-              <div className={styles.DeletBtn}>
-                <AiFillDelete onClick={() => deletGroupHandler(group)} />
-              </div>
-            </li>
-          );
-        });
-      }
-      return <p>No Recently aded</p>;
-    };
-
-    return group.length > 4 ? showLowerThan4() : showAll(group.length);
-  };
   const deletGroupHandler = (groupName) => {
     const groups = [...group];
-    setGroup(groups.filter((group) => group !== groupName));
+    setGroup(groups.filter((g) => g !== groupName));
     setProduct(product.filter((product) => product.group !== groupName));
-    toast.error(groupName + " group whas deleted");
+    toast((t) => (
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <AiFillDelete
+          style={{ color: "red", fontSize: "26px", margin: "3px 10xp 0 0" }}
+        />
+        The {groupName} whas deleted
+      </div>
+    ));
   };
   const serachOnGrouplistHandler = () => {
     let groups;
@@ -103,7 +77,7 @@ const Groups = () => {
               {product.filter((product) => product.group === group).length}
             </div>
             <div className={styles.buttonItem}>
-              <button
+              <Button
                 onClick={() =>
                   setEditGroup({
                     isShow: !EditGroups.isShow,
@@ -113,8 +87,8 @@ const Groups = () => {
                 }
               >
                 Edit
-              </button>
-              <button onClick={() => deletGroupHandler(group)}>Delete</button>
+              </Button>
+              <Button onClick={() => deletGroupHandler(group)}>Delete</Button>
             </div>
           </li>
         );
@@ -133,7 +107,7 @@ const Groups = () => {
               {product.filter((product) => product.group === group).length}
             </div>
             <div className={styles.buttonItem}>
-              <button
+              <Button
                 onClick={() =>
                   setEditGroup({
                     isShow: !EditGroups.isShow,
@@ -143,8 +117,8 @@ const Groups = () => {
                 }
               >
                 Edit
-              </button>
-              <button onClick={() => deletGroupHandler(group)}>Delete</button>
+              </Button>
+              <Button onClick={() => deletGroupHandler(group)}>Delete</Button>
             </div>
           </li>
         );
@@ -162,19 +136,35 @@ const Groups = () => {
         const filteredGroup = groups.findIndex(
           (group) => group === targetGroupName
         );
-        groups[filteredGroup] = EditGroups.newGroupName;
-        toast.success(
-          "The group " +
-            targetGroupName +
-            " was successfuly changed to " +
-            EditGroups.newGroupName
-        );
-        setEditGroup({
-          isShow: false,
-          targetGroupName: EditGroups.targetGroupName,
-          newGroupName: EditGroups.newGroupName,
-        });
-        setGroup(groups);
+        if (groups.indexOf(EditGroups.newGroupName) > -1) {
+          toast.error(EditGroups.newGroupName + " is used beffore");
+        } else {
+          groups[filteredGroup] = EditGroups.newGroupName;
+          toast.success(
+            "The group " +
+              targetGroupName +
+              " was successfuly changed to " +
+              EditGroups.newGroupName
+          );
+          const updateOldProducts = () => {
+            const products = [...product];
+            const targetProducts = products.filter(
+              (p) => p.group === targetGroupName
+            );
+            for (let index = 0; index < targetProducts.length; index++) {
+              const indexOfProducts = products.indexOf(targetProducts[index]);
+              products[indexOfProducts].group = EditGroups.newGroupName;
+            }
+            console.log(product);
+            setEditGroup({
+              isShow: false,
+              targetGroupName: EditGroups.targetGroupName,
+              newGroupName: EditGroups.newGroupName,
+            });
+            setGroup(groups);
+          };
+          updateOldProducts();
+        }
       }
     };
 
@@ -188,7 +178,7 @@ const Groups = () => {
           <div className={styles.editGroupContainer}>
             <div className={styles.title}>
               <h2>Edite groupName</h2>
-              <button onClick={() => setEditGroup(false)}>X</button>
+              <Button onClick={() => setEditGroup(false)}>X</Button>
             </div>
             <div className={styles.body}>
               <label htmlFor="newGroup_input">Enter new Group name</label>
@@ -206,13 +196,23 @@ const Groups = () => {
               />
             </div>
           </div>
-          <button onClick={changeGroupName} className={styles.changeButton}>
+          <ColorButton
+            onClick={changeGroupName}
+            className={styles.changeButton}
+          >
             change
-          </button>
+          </ColorButton>
         </div>
       </>
     );
   };
+  const ColorButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.getContrastText(blue[500]),
+    backgroundColor: blue["A400"],
+    "&:hover": {
+      backgroundColor: indigo["A700"],
+    },
+  }));
 
   return (
     <>
@@ -221,7 +221,7 @@ const Groups = () => {
         <Toaster />
         <h2>Recently added</h2>
         <div className={styles.GroupsListContainer}>
-          <ul>{showRecentHandler()}</ul>
+          <ul>{showRecentHandler(group, deletGroupHandler, product, "g")}</ul>
         </div>
         <h2>Add new group</h2>
         <div className={styles.FormContainer}>
@@ -239,7 +239,7 @@ const Groups = () => {
             </div>
           </form>
         </div>
-        <h2>Delete and edit group</h2>
+        <h2>Edit group</h2>
         <div className={styles.DeletFormContainer}>
           <ul className={styles.DeletForm}>
             <div className={styles.searchForm}>

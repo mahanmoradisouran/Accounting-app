@@ -1,0 +1,167 @@
+h2 {
+  width: 80%;
+  text-align: left;
+  margin: 10px 0;
+}
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.addGroupProductBox {
+  width: 100%;
+  padding: 30px 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.addGroup,
+.addProduct {
+  background: #e7ebfc;
+  color: #5ba2ff;
+  padding: 0 30px;
+  height: 50px;
+  margin: 5px;
+  text-align: center;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+.showCount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.showCount .showCountContainer {
+  padding: 20px 30px;
+  margin: 5px;
+  font-size: 18px;
+  width: 95%;
+  color: #444;
+}
+
+.showCount .showCountContainer div {
+  display: inline;
+  border: none;
+  margin-top: 5px;
+}
+
+.showCount .showCountContainer div span {
+  margin: 0 4px;
+}
+
+.showCount .showCountContainer:nth-child(1) {
+  border-bottom: 3px solid var(--c2);
+}
+
+.showCount,
+.ProductsListContainer,
+.GroupsListContainer {
+  width: 80%;
+  padding: 30px 15px;
+  background-color: var(--c1);
+  box-shadow: 0 0 15px 1px #eee;
+  border-radius: 20px;
+}
+
+.ProductsListContainer ul,
+.GroupsListContainer ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row-reverse;
+  width: 100%;
+  height: 100%;
+}
+.ProductsListContainer ul li,
+.GroupsListContainer ul li {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  color: var(--c4);
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: ellipsis;
+  overflow-y: hidden;
+  width: 200px;
+  margin: 0 5px;
+}
+.ProductsListContainer ul li:nth-child(1),
+.GroupsListContainer ul li:nth-child(1) {
+  background-color: #f4efff;
+}
+.ProductsListContainer ul li:nth-child(2),
+.GroupsListContainer ul li:nth-child(2) {
+  background-color: #fff9e8;
+}
+.ProductsListContainer ul li:nth-child(3),
+.GroupsListContainer ul li:nth-child(3) {
+  background-color: #fff6f4;
+}
+.ProductsListContainer ul li:nth-child(4),
+.GroupsListContainer ul li:nth-child(4) {
+  background-color: #effbff;
+}
+.ProductsListContainer ul li:nth-child(1) span,
+.GroupsListContainer ul li:nth-child(1) span {
+  background-color: #6e1eff;
+  color: #cbb1fd;
+}
+.ProductsListContainer ul li:nth-child(2) span,
+.GroupsListContainer ul li:nth-child(2) span {
+  background-color: #ffb800;
+  color: #ffd34c;
+}
+.ProductsListContainer ul li:nth-child(3) span,
+.GroupsListContainer ul li:nth-child(3) span {
+  background-color: #ff5718;
+  color: #ff9777;
+}
+.ProductsListContainer ul li:nth-child(4) span,
+.GroupsListContainer ul li:nth-child(4) span {
+  background-color: #00b3ff;
+  color: #52cfff;
+}
+.GroupsListContainer ul li span {
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+}
+.ProductsListContainer
+  ul
+  li:hover
+  .DeletBtn
+  .GroupsListContainer
+  ul
+  li:hover
+  .DeletBtn {
+  opacity: 1;
+  transform: translateY(-20px);
+  z-index: 999;
+}
+
+.ProductsListContainer ul li span {
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+}

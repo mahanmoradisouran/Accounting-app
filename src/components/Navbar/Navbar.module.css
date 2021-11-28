@@ -52,6 +52,11 @@ header {
   padding-left: 50px;
 }
 
+.active {
+ color: var(--c6);
+ background: var(--c2);
+}
+
 .menuItem:hover {
   background: var(--c2);
 }

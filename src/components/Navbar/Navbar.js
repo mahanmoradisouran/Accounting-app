@@ -1,9 +1,16 @@
 import { useContext } from "react";
-import { ContextDispatcherProvider } from "../context/ContentProvider";
+import {
+  ContextDispatcherProvider,
+  ContextProvider,
+} from "../context/ContentProvider";
 import styles from "./Navbar.module.css";
+
 
 const Navbar = () => {
   const setContent = useContext(ContextDispatcherProvider);
+  const Content = useContext(ContextProvider);
+
+ 
 
   return (
     <header>
@@ -17,17 +24,32 @@ const Navbar = () => {
         </div>
         <ul className={styles.menu}>
           <li
+            className={
+              Content === "Dashboard"
+                ? styles.menuItem + " " + styles.active
+                : styles.menuItem
+            }
             onClick={() => setContent("Dashboard")}
-            className={styles.menuItem}
           >
             <div>Dashbord</div>
           </li>
-          <li onClick={() => setContent("Groups")} className={styles.menuItem}>
+          <li
+            className={
+              Content === "Groups"
+                ? styles.menuItem + " " + styles.active
+                : styles.menuItem
+            }
+            onClick={() => setContent("Groups")}
+          >
             <div>Groups</div>
           </li>
           <li
+            className={
+              Content === "Products"
+                ? styles.menuItem + " " + styles.active
+                : styles.menuItem
+            }
             onClick={() => setContent("Products")}
-            className={styles.menuItem}
           >
             <div>Products</div>
           </li>
