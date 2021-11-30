@@ -2,7 +2,7 @@ import { useContext } from "react";
 import styles from "./Dashboard.module.css";
 import {
   ContextDispatcherProvider,
-  ContextProvider,
+  // ContextProvider,
   showRecentHandler,
 } from "../context/ContentProvider";
 import { AiFillDelete } from "react-icons/ai";
@@ -12,14 +12,14 @@ import {
   ProductDispatcherProvider,
   ProductProvider,
 } from "../context/ContentProvider";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const Dashboard = () => {
   const group = useContext(GroupProvider);
   const setGroup = useContext(GroupDispatcherProvider);
   const setProduct = useContext(ProductDispatcherProvider);
   const product = useContext(ProductProvider);
-  const content = useContext(ContextProvider);
+  // const content = useContext(ContextProvider);
   const setContent = useContext(ContextDispatcherProvider);
 
   const deletGroupHandler = (groupName) => {
@@ -35,18 +35,18 @@ const Dashboard = () => {
       </div>
     ));
   };
-  const deletProductHandler = (productName) => {
-    const products = [...product];
-    setProduct(products.filter((p) => p.name !== productName));
-    toast((t) => (
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <AiFillDelete
-          style={{ color: "red", fontSize: "26px", margin: "3px 10xp 0 0" }}
-        />
-        The {productName} whas deleted
-      </div>
-    ));
-  };
+  // const deletProductHandler = (productName) => {
+  //   const products = [...product];
+  //   setProduct(products.filter((p) => p.name !== productName));
+  //   toast((t) => (
+  //     <div style={{ display: "flex", alignItems: "center" }}>
+  //       <AiFillDelete
+  //         style={{ color: "red", fontSize: "26px", margin: "3px 10xp 0 0" }}
+  //       />
+  //       The {productName} whas deleted
+  //     </div>
+  //   ));
+  // };
 
   return (
     <>
