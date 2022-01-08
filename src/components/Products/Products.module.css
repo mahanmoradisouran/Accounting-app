@@ -406,6 +406,12 @@
   padding: 10px 15px;
 }
 
+@media screen and (max-width: 1210px) {
+  .editGroupContainer {
+    width: 500px;
+  }
+}
+
 @media screen and (max-width: 1100px) {
   .editProducts {
     margin-bottom: 80px;
@@ -435,5 +441,19 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .editGroupContainer {
+    width: 300px;
+  }
+
+  .title {
+    padding: 20px 10px;
+  }
+
+  .body input {
+    width: 100%;
   }
 }
