@@ -9,7 +9,6 @@ header {
   z-index: 999;
 }
 
-
 .headerContainer {
   position: absolute;
   width: 100%;
@@ -23,7 +22,6 @@ header {
 .headerContainer h2 {
   width: 64%;
 }
-
 
 .headerTitle {
   display: flex;
@@ -58,10 +56,54 @@ header {
 }
 
 .active {
- color: var(--c6);
- background: var(--c2);
+  color: var(--c6);
+  background: var(--c2);
 }
 
 .menuItem:hover {
   background: var(--c2);
 }
+
+@media screen and (max-width: 1100px) {
+  header {
+    top: unset;
+    bottom: 10px;
+    right: 0;
+    height: 80px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  .headerContainer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--c1);
+    border-radius: 45px;
+    box-shadow: 0 0 15px 1px #eee;
+    padding: 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .headerTitle {
+    display: none;
+  }
+  .menu {
+    display: flex;
+    margin: 0 0;
+  }
+  .menuItem {
+    width: 20%;
+    border-radius: 25px;
+    background: var(--c1);
+    color: var(--c4);
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 0;
+    text-align: center;
+  }
+}
+

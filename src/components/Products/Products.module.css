@@ -27,6 +27,7 @@
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   width: 100%;
   height: 100%;
 }
@@ -115,6 +116,11 @@
   border-radius: 20px;
   display: flex;
 }
+
+.editProducts {
+  margin-bottom: 0;
+}
+
 .ProductsListContainer ul li:hover .DeletBtn,
 .GroupsListContainer ul li:hover .DeletBtn,
 .ProductsListContainer ul li:hover .DeletBtn {
@@ -287,9 +293,9 @@
 }
 
 .item div {
-  padding-left: 5px;
+  padding: 5px;
   text-align: left;
-  width: 33%;
+  width: 20%;
 }
 
 .buttonItem {
@@ -398,4 +404,36 @@
 .popup .changeButton {
   margin-top: 10px;
   padding: 10px 15px;
+}
+
+@media screen and (max-width: 1100px) {
+  .editProducts {
+    margin-bottom: 80px;
+  }
+  .ProductsListContainer ul li {
+    margin-bottom: 20px;
+  }
+  .Form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .DeletForm ul li:first-child {
+    display: none;
+  }
+
+  .DeletForm ul li::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .item div {
+    width: unset;
+  }
+
+  .item {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
 }

@@ -79,21 +79,21 @@ const Dashboard = () => {
         <div className={styles.showCount}>
           <div className={styles.showCountContainer}>
             group : {group.length}
-            <br />
             list :
             <div>
               {group.map((g) => (
-                <span>{g} -</span>
+                
+                <span key={g}>{g} -</span>
               ))}
             </div>
           </div>
           <div className={styles.showCountContainer}>
             product : {product.length}
-            <br />
+            {/* <br /> */}
             list :
             <div>
               {product.map((p) => (
-                <span>{p.name} -</span>
+                <span key={p.name}>{p.name} -</span>
               ))}
             </div>
           </div>

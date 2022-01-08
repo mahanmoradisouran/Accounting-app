@@ -72,7 +72,7 @@ const Product = () => {
           <li key={p.name} className={styles.item}>
             <div>{p.name}</div>
             <div>{p.quantity}</div>
-            <div>$ {p.price}</div>
+            <div>${p.price}</div>
             <div>{p.group}</div>
             <div className={styles.buttonItem}>
               <Button
